@@ -12,14 +12,14 @@ export default function usePromise(promiseCreator, deps) {
 
   useEffect(() => {
     const process = async () => {
-      setLoading(true);
+      setLoading(true); // 로딩 상태로 설정
       try {
-        const resolved = await promiseCreator();
-        setResolved(resolved);
+        const resolved = await promiseCreator(); // 비동기 작업 수행하는 함수, Promise를 반환함
+        setResolved(resolved); // 성공 시 결과 저장
       } catch (e) {
-        setError(e);
+        setError(e); // 실패 시 에러 저장
       }
-      setLoading(false);
+      setLoading(false); // 로딩 상태 해제
     };
     process();
       // 해당 줄에서만 ESLint 규칙 무시하도록 주석 달기
